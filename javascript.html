@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+   
+</head>
+<body><center>
+    <h2>VALIDATION FORM </h2>
+    <form onsubmit="validateForm(event)">
+        <label for="name"> user Name</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <p></p>
+        <label for="email">Email </label><br>
+        <input type="text" id="email" name="email"><br><br>
+        <p></p>
+        <label for="address">password</label><br>
+        <input type="text" id="address" name="address"><br><br>
+        <p></p>
+        <button value="Submit">submit</button>
+    </center></form>
+    <script>
+        function validateForm(event)
+        {
+             event.preventDefault()
+            let inputs = document.getElementsByTagName("input")
+            let p = document.getElementsByTagName("p")
+            var errorDetect = false
+            for(let i = 0; i<inputs.length-1; i++){
+                // console.log(inputs[i].value)
+                // console.log(i)
+                if(inputs[i].value.length == 0){
+                    // alert("fail")
+                    p[i].textContent = "empty"
+                    errorDetect = true
+                }else{
+                    p[i].textContent = ""
+                }
+            }
+            console.log(errorDetect)
+            if(!errorDetect) {
+                alert("submitted")
+            }
+        }
+    </script>
+</body>
+</html>
